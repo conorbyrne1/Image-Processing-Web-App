@@ -16,16 +16,44 @@ const Home = () => {
         <h2>Select a Tool</h2>
         <div className="tools-grid">
           <div className="tool-card" onClick={() => navigate('/blur')}>
-            <div className="tool-icon">🔲</div>
+            <div className="tool-icon">Blur</div>
             <h3>Image Blur</h3>
             <p>Apply Gaussian blur using convolution kernels</p>
             <button className="tool-button">Open Tool</button>
           </div>
 
           <div className="tool-card" onClick={() => navigate('/edge-detection')}>
-            <div className="tool-icon">📐</div>
+            <div className="tool-icon">Edge</div>
             <h3>Edge Detection</h3>
             <p>Detect edges using 1D or 2D convolution operators</p>
+            <button className="tool-button">Open Tool</button>
+          </div>
+
+          <div className="tool-card" onClick={() => navigate('/sharpen')}>
+            <div className="tool-icon">Sharp</div>
+            <h3>Sharpen</h3>
+            <p>Enhance image details and edges with sharpening</p>
+            <button className="tool-button">Open Tool</button>
+          </div>
+
+          <div className="tool-card" onClick={() => navigate('/contrast')}>
+            <div className="tool-icon">Contrast</div>
+            <h3>Contrast Adjustment</h3>
+            <p>Adjust the difference between light and dark areas</p>
+            <button className="tool-button">Open Tool</button>
+          </div>
+
+          <div className="tool-card" onClick={() => navigate('/brightness')}>
+            <div className="tool-icon">Bright</div>
+            <h3>Brightness Adjustment</h3>
+            <p>Make your image lighter or darker</p>
+            <button className="tool-button">Open Tool</button>
+          </div>
+
+          <div className="tool-card" onClick={() => navigate('/grayscale')}>
+            <div className="tool-icon">Gray</div>
+            <h3>Grayscale Conversion</h3>
+            <p>Convert color images to grayscale</p>
             <button className="tool-button">Open Tool</button>
           </div>
         </div>
@@ -60,7 +88,7 @@ const Home = () => {
           <h4>How Convolution Works:</h4>
           <ol>
             <li>
-              <strong>The Kernel:</strong> A small matrix (e.g., 3×3, 5×5) containing weights. 
+              <strong>The Kernel:</strong> A small matrix (e.g., 3x3, 5x5) containing weights. 
               Different kernels produce different effects (blur, sharpen, edge detection, etc.).
             </li>
             <li>
@@ -84,7 +112,7 @@ const Home = () => {
           <div className="formula-box">
             <p><strong>Mathematical Formula:</strong></p>
             <p className="formula">
-              G(x,y) = Σ Σ K(i,j) · F(x+i, y+j)
+              G(x,y) = Sum Sum K(i,j) * F(x+i, y+j)
             </p>
             <p className="formula-explanation">
               Where G is the output image, F is the input image, and K is the kernel
@@ -112,7 +140,7 @@ const Home = () => {
             simultaneously. This is the standard approach for most image processing operations.
           </p>
           <p>
-            <strong>Example:</strong> A 3×3 Sobel kernel for edge detection:
+            <strong>Example:</strong> A 3x3 Sobel kernel for edge detection:
           </p>
           <pre className="kernel-example">
 {`[-1  0  1]
@@ -129,7 +157,7 @@ const Home = () => {
               <h4>Blur (Box Filter)</h4>
               <pre>
 {`[1  1  1]
-[1  1  1]  ÷ 9
+[1  1  1]  / 9
 [1  1  1]`}
               </pre>
               <p>Averages surrounding pixels for smoothing</p>
@@ -139,7 +167,7 @@ const Home = () => {
               <h4>Gaussian Blur</h4>
               <pre>
 {`[1  2  1]
-[2  4  2]  ÷ 16
+[2  4  2]  / 16
 [1  2  1]`}
               </pre>
               <p>Weighted averaging with center emphasis</p>
