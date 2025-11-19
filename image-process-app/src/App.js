@@ -11,7 +11,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Image-Processing-Web-App">
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
