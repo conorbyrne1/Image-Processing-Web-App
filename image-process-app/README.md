@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+# Image Processing Tool
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Live Demo:** https://conorbyrne1.github.io/Image-Processing-Web-App
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+The Image Processing Tool is a comprehensive web application that demonstrates
+various image filtering.
+Built with React and the HTML5 Canvas API, this webpage allows
+users to upload images and apply transformations including blur,
+edge detection, sharpening, contrast/brightness adjustments, and grayscale
+conversion. All processing occurs entirely in the browser, ensuring user
+privacy and providing immediate visual feedback.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Image Blur** - Apply Gaussian blur with adjustable intensity (1-100%)
+- **Edge Detection** - Detect edges using three methods:
+    - 1D Horizontal Edge Detection
+    - 2D Sobel Operator
+    - 2D Laplacian Operator
+- **Sharpen** - Enhance image details and edges with adjustable sharpening intensity (1-100%)
+- **Contrast Adjustment** - Adjust image contrast from -100 to +100
+- **Brightness Adjustment** - Make images lighter or darker from -100 to +100
+- **Grayscale Conversion** - Convert color images to grayscale using three methods:
+    - Luminance (Rec. 601 standard)
+    - Average method
+    - Lightness method
+- **Real-Time Preview** - See results immediately after clicking "Go"
+- **Download Functionality** - Save processed images as PNG files
+- **Responsive Design** - Works on desktop and mobile devices
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies & Dependencies
 
-### `npm test`
+### Core Technologies
+- **JavaScript (ES6+)** - Primary programming language
+- **React 18.3.1** - Frontend framework for building the user interface
+- **HTML5 Canvas API** - For client-side image manipulation
+- **CSS3** - For styling and responsive layouts
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Dependencies
 
-### `npm run build`
+```json
+{
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1",
+  "react-router-dom": "^6.28.0",
+  "react-scripts": "5.0.1",
+  "web-vitals": "^2.1.4"
+}
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Development Tools
+- **Node.js** - Runtime environment
+- **npm** - Package manager
+- **Create React App** - Build tooling and development server
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup Instructions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
+- Node.js (version 14.x or higher)
+- npm (version 6.x or higher)
 
-### `npm run eject`
+### Installation Steps
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Clone or download the project**
+   ```bash
+   git clone https://github.com/conorbyrne1/Image-Processing-Web-App.git
+   cd image-processing-tool
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Run the development server**
+   ```bash
+   npm start
+   ```
+   The application will open in your browser at `http://localhost:3000`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
+   Creates an optimized production build in the `build/` folder
 
-## Learn More
+### Environment Configuration
+No additional environment variables are required. The application runs entirely client-side with no backend dependencies.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## File Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+image-process-app/
+├── public/
+│   ├── index.html                      # HTML template
+├── src/
+│   ├── pages/                          # Page components
+│   │   ├── Home.js                     # Landing page
+│   │   ├── Home.css                    # Home page styles
+│   │   ├── ImageBlur.js                # Blur tool component
+│   │   ├── ImageBlur.css               # Blur tool styles
+│   │   ├── EdgeDetection.js            # Edge detection component
+│   │   ├── EdgeDetection.css           # Edge detection styles
+│   │   ├── Sharpen.js                  # Sharpen tool component
+│   │   ├── Sharpen.css                 # Sharpen tool styles
+│   │   ├── ContrastAdjustment.js       # Contrast tool component
+│   │   ├── ContrastAdjustment.css      # Contrast tool styles
+│   │   ├── BrightnessAdjustment.js     # Brightness tool component
+│   │   ├── BrightnessAdjustment.css    # Brightness tool styles
+│   │   ├── GrayscaleConversion.js      # Grayscale tool component
+│   │   └── GrayscaleConversion.css     # Grayscale tool styles
+│   ├── App.js                          # Main app component with routing
+│   ├── App.css                         # Global app styles
+│   ├── index.js                        # Application entry point
+│   ├── index.css                       # Base styles
+│   └── reportWebVitals.js              # Performance monitoring
+├── package.json                        # Project dependencies and scripts
+└── README.md                           # Project documentation
+```
